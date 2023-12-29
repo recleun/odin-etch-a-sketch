@@ -10,16 +10,16 @@ function generateGrid() {
       const grid = document.createElement('div');
       grid.className = 'grid';
       grid.onmousedown = () => {
-        grid.setAttribute('active', 'true');
-        grid.style.backgroundColor = 'black';
+        grid.classList.toggle('active-grid');
+        grid.style.backgroundColor = grid.classList.contains('active-grid') ? 'black' : 'white';
       }
       grid.onmouseenter = () => {
-        if (!grid.getAttribute('active')) {
+        if (!grid.classList.contains('active-grid')) {
           grid.style.backgroundColor = 'darkgray';
         }
       };
       grid.onmouseleave = () => {
-        if (grid.getAttribute('active')) {
+        if (grid.classList.contains('active-grid')) {
           grid.style.backgroundColor = 'black';
         } else {
           grid.style.backgroundColor = 'white';
